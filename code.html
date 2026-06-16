@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html class="dark" lang="en">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>KAEVRON OS | Enterprise Control Panel</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
     <style>
         body {
             background-color: #000;
@@ -14,12 +19,14 @@
             overflow-x: hidden;
             font-family: "Inter", sans-serif;
         }
+
         /* Subtle Grid Pattern */
         .grid-bg {
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px), 
-                              linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
             background-size: 40px 40px;
         }
+
         /* Glassmorphism Effect */
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
@@ -29,6 +36,7 @@
             position: relative;
             overflow: hidden;
         }
+
         /* Tonal Grain */
         .glass-card::before {
             content: "";
@@ -43,6 +51,7 @@
             filter: contrast(150%) brightness(1000%);
             z-index: 1;
         }
+
         /* Light-leak highlight */
         .light-leak {
             position: absolute;
@@ -52,41 +61,50 @@
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
         }
+
         /* Input Focus Glow */
         .input-focus-glow:focus {
             outline: none;
             border-color: #fff !important;
             box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
         }
+
         .material-symbols-outlined {
             font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
         }
+
         /* Sidebar active link styling */
         .sidebar-tab {
             border-left: 2px solid transparent;
             color: #c4c7c8;
             transition: all 0.2s ease;
         }
+
         .sidebar-tab:hover {
             background: rgba(255, 255, 255, 0.02);
             color: #fff;
         }
+
         .sidebar-tab.active {
             background: rgba(255, 255, 255, 0.05);
             color: #fff;
             border-left-color: #fff;
         }
+
         /* Modern Scrollbar styling */
         ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
         }
+
         ::-webkit-scrollbar-track {
             background: #0e0e0e;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #2a2a2a;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: #444;
         }
@@ -172,32 +190,34 @@
                         "title-md": ["Space Grotesk"]
                     },
                     "fontSize": {
-                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                        "mono-label": ["11px", {"lineHeight": "14px", "fontWeight": "400"}],
-                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
-                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
-                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "500"}]
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "mono-label": ["11px", { "lineHeight": "14px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "500" }]
                     }
                 }
             }
         }
     </script>
 </head>
+
 <body class="bg-black min-h-screen flex flex-col items-center justify-center relative overflow-y-auto">
     <!-- Background Grid -->
     <div class="fixed inset-0 grid-bg opacity-40 pointer-events-none z-0"></div>
 
     <!-- 1. Authentication View Layer -->
     <main id="authContainer" class="relative z-10 w-full max-w-[420px] px-6 py-10 transition-all duration-300">
-        
+
         <!-- Login Card -->
         <div id="loginCard" class="glass-card rounded-xl p-lg flex flex-col items-center">
             <div class="light-leak"></div>
             <!-- Logo Section -->
             <div class="mb-lg mt-sm">
-                <img alt="Kaevron OS Wordmark Logo" class="w-[180px] h-auto grayscale brightness-200" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAB4CAYAAADc36SXAAAQAElEQVR4AeydCbx9VVXHH+aApqWVmVqiORAoKgaoxCDzoCKjTIIgCIgIwp+QQAlQUQhBJiEoEyyVEgNKSQElII1ASEwtFalwQKXItDQtX7/v/bz73nn3nmGte/YZ7r3rffZ659x91l5r7d/e5+x91h7OQxbiLxAIBAKBQCAQmACBaEAmAC2SBAKBQCAQCCwsRAMStSAQ6AqB0BsITDkC0YBMeQGG+YFAIBAIdIVANCBdIR96A4FAIBCYcgSmuAGZcuTD/EAgEAgEphyBaECmvADD/EAgEAgEukIgGpCukA+9gcAUIxCmBwIgEA0IKAQFAoFAIBAIuBGIBsQNWSQIBAKBQCAQAIFoQEChbQp9gUAgEAjMAALRgMxAIUYWAoFAIBDoAoFoQLpAPXQGAoFAVwiE3oQIRAOSEMwQFQgEAoHAPCEQDcg8lXbkNRAIBAKBhAhEA5IQzHkQFXkMBAKBQGCIQDQgQyTiGAgEAoFAIOBCIBoQF1zBHAgEAoFAVwj0T280IP0rk7AoEAgEAoGpQCAakKkopjAyEAgEAoH+IRANSP/KJCxqBoGQGggEAokRiAYkMaAhLhAIBAKBeUEgGpB5KenIZyAQCAQCiREwNyCJ9Ya4QCAQCAQCgSlHIBqQKS/AMD8QCAQCga4QiAakK+RDbyBgRiAYA4F+IhANSD/LJawKBAKBQKD3CEQD0vsiCgMDgUAgEOgnAvPQgPQT+bAqEAgEAoEpRyAakCkvwDA/EAgEAoGuEIgGpCvkQ28gMA8IRB5zEVis+ZcrtIPIaEA6AD1UBgKBQCAwCwhEAzILpRh5CAQCgUCgAwSiAekAdLvK4AwEAoFAoL8IRAPS37IJywKBQCAQ6DUC0YD0unjCuEAgEOgKgdBbjUA0INUYBUcgEAgEAoFADgLRgOSAElGBQCCwgsDi4uL6om1E+4qOEb1V9HbR0aK9RZuLfn0lRZzNCwK5DYgqw0Gicw10fGqgpHNbkUX3KM8rU9oiG84Rjeoo+v3UlLpHZcmO40RFuruM32loq+w7S7Riy+Ji2fmLhumaOi4uLj5FdK6RTsnaoTRHiaxpPXxnS+7bRG8WrREdKTpYtI9oe9HPZe3o6lx2PFN0uuhu0aLs+ILoBtEHRO8WvVl0kug80YdEN4vuEe8PRbeK3inaTvRwxScPknuoyIL7q1Mrl94dRBbd66fW3Ud5uQ2IDH2Z6I0GepV4kgUVzIsl7CqRRXeWZyuluV6UJMgOKt6xEpbVUXb+OvE2GfaT8DL9XV3bVHYNwwY6sdpxlHibDvtLgdWedcWbDXRGrGk9fGuk5GTRW0Vniy4SvVf0QdHHRd9T3btXdLXoRNHTFddKkK4nik4V3SGFXxa9RUSZ6mAOa4vzt0RvEn1C9KDkkZcNdZ4yvELCLLhfIv3riTdl4Bll0f20lEr7KquoAWnd3qWC/gsp9vbC6B1ts9Zaaz2otKnCgU5Br5L9vcHSaXsq9isdgl4uvBrpnWZs2CVzXnVKz7qKp63rvM3ygHyHFPIGgKvokTpvJFAOIhq1L0rB74p+U5QqPEqCyMvt0nGl6Fn63WagQbugTYU90dWaGb146KlicdPQA/tFZ87pKdF4/JszXSG7bHmGLr5E5AlPEvNeonkONCD/aQSATsJuRl43m8rwyUr0QpEl3K/Ox0ctjB3w8ADGVfRF5QmvQFITJHNXCaQD9jYdHytqKvyMBPNW9znpPETnbYbB2E2bCudJV+cNiCrUEwU4r7u/pqMnfE3MW+vm/7aOKcNhEjYJLq9RurkNKocfKvOeB/Ge4m8qHCDBa4ks4cMWpo556GBdpXtlxxR2SM5DRO+SLNzFdJh02krgjeAy6T5PNMk9NqmR75K+n580caQrRqDNQhyzQoVKT5Q3j2eOXSyP+BddpvH4ho7JguwBD8YbJpHJ4H9rPutJDGwhDQOqVjU7Ce+mXDMe99UfjBrc09+4/HADvaCOfcL88Ur/SdFxIuq7Dq0GGvajpfFG2eL1OCjZRIFO6tsnShmJShHoogINDFLloTdCj9U7UEejgduKRmQgK+E/Xulxf0wiEiwPnyThDKX5S+XlfpEl/KyYcGvokC6oXlF+mxglfkFvTp8z8vaBjQ7XNcojLlO3PUrHg/RvlXBLUdcBN/Ftsqmt2UqHS9dGXWd61vTz0Gs9TypI9P65FG8m8gQeTtvqpr/Hk8jBe5CDN491/6W85V2b+TiVy0+VyY+IrKEJNxYzA/G5W2yYBvfVaD5+VREniFxB9fKhSkDZ9Gm9Bm/s18q2R8u2pgP5//2mlcybfB7kafNsk3aF2Lz+3AeUZjs9pP5Rx+RBlfgJErq8rkHnkwR6hsl71ZMY0mGa9zt04/ZL7Zu2uq9Y3/A+h619YmWdlvehe4kyUGf9DbMcb5GMq0V/KLpQ9KeiG0VMZtFhokAjcvlEKf2JXqD7vI0p5JWW6TlWK1QqaImh9QZEBchCJOboe7L472LeXoj/g45NBdxP9FLqyu9yMP1vZDyzm9qisemvKiNcJF+SHZaAG3MfC6OFR3UL95V19tWnZes/W+SW8HxW1+pgzXojHsL/JTmeQKNLfTWlES5HinGS2U/fV7ozRVsKq18QbSHaTXSo6A2ivUV4BFhHw2D8b4t3ksZkd9lIWiVvPLBAknGgxhXNg4JWGxBVkhMF6jEiT/iemHdSRb1LxybDwYmEM22QXlUicS4xDwinq1ukooaC2T1Ww3e3Mhr46JhY3Vc8uA0iS1kerIn1FUq/tzRQX7z1O2/xqkStDrrnmMF1zupY0y9czBvIvhNFrDQvTSSee0QsjmRMkwHrH5UmGL94hmz1urTHpVTHPE4szEDTIUJdBFprQFQ5qPBnOA2mB/RSVcy/c6Zzscu2bZWAG02H2gFMj6gtZboF4OLARWTJxdbCP1WP0Oq++h8Z9ieiXgTV72+LmF31GYdBTxdultmLp0vmI0TWQLmtkT27i9wTVZTmxyK2OmGgngkvVr28/Z9vZa7Jx8JfVszXFBPJedg1joIqOuMCrAhlCp9V33+L8RWqjLhldNposLqdGIexGEJP2MI3kzwqM1xDuLIs+ePBsa+FsYxHdQz3ldXHf71sTLb4tMwu57VDxf9jkTUwoF7IK0yerYusidHBHA4XNpO8saxSIBl0+tj24+5VF8p/bCibtytnSXKV59DF0tXK8y+JxT0V0jiAKiQGphk0t7oWgIrXX3ytn+JHkyT7mBrJ9N0Fgx6rm4t9hZL59g129ZHlzxxGpXBjsX7HWsc861Uc2ajHqocu24lc65DCxI8ydu9srdNkw2VlAj3XJOs+8TNGZN2hQOwLrBHh2DThasOl3rSemZbfaAOihzM9EB4knldo3At7qvKxOr0N8BlctCxou0U2sc7BOpCP3Dbs76sOOg3/azRuM9UVZrAZ2XPZ2HMp98JIJA8z6uRIdG9+emYZ/kqF1XTeKliWL/PGgLtrOSLFie4ZdozwNAo7qy78RgrdBhknSddTDHzBUoBAYw2ICuZ50snmiCwY06kp/ERc+6nSscBQp60E1g1YFA17rez5ZOHHt8/gqIV35nhUhriIrJ0A3hys5TCGleqax33FJAOPm2hMX8MR/+qQjysml12YbK4LnrGl16vMWMejZGmD5DJN985yqctXeSa15QLm2cSW9MvK48SHAIXlS2HgVuVlcO86sXq2Kvg/8R+oysZiJ502H2QnO48yeFmljPGYP15iYoDY0rMGWyYOLCWby4O1sQUcXB0cJyHGUGiELGnHph5bErXIU+WWyppSNiZnnVCAvFt137GNO+dNEfeNVXabA9y76jngeVOz5mEu+HjIJc2oCoPtEuh5crTKpvF4jSrxsJdvTVeXzzqX/mOyDdfHgo7fklIWT+lQGV4tPJJjXKm1Pwy4iga4GUx6obCadJW01X11n8qPvdcM5nTG4nGpfLfESs9gNIsCS0QlucR3T/7DKGkT1QUmVxjZa7NdJH0WN3ZtRbMmIOnDTYXAHGtuUM+UWF6bj9CNjc+8NXxlKxXGupXGaK/VOgX0l5ShNgbTpaZ/QWXKDr24MS3G4Y5xu7FUjrivGGuz6PCsT7HIS8qjvPDQ3N4olOm2jFuMsUsOO1s/d+xCfsS9KifPm2K+lIpY6WBiDB3LCs7BZVxLTAMe/Kjxz9pg8fEnvoVSQ9V8Jk3WgKjSsqoYtxWzG6xochMcrcrVxY6o+Flp8KpsZbv4a0aY+IIcq+NHonN/WqcI5yaegUiwsmbD+iaRlUcDbXVf9X3rEmYFrZPNXMn5XbpviuogDSoNckny5Ut/tXzW/InHTcZmi3UtOtUh4Bg9w1J/vdChfjpZkzUgyj5jF9ZtJMQ+CB/QTcBnPQc/Wv5n/ergh2Ujb0nL5uk3YyDkdzmu5GQrVcy2BtPXky7L95rr8pin3QorJkSwCWYJRMuX2KvIexNbp2DfLVt6u/Ouyo2tPPjU7TIYFSe4B4tYfrnoQk580W4COay1ozwLJWvPxFJ5M0B+m9FqOsAXG3lXs83xryQNiCo/lXmSgahdlHZSv/fExSad7Ntj3Tbh0gJF1vnyYMxeRAVikkY/S9Le2AJ5e4eeXW95M1QWqoPK0eO+8thQrTwRh/Kwg+gmiTtLZA2MK5U97DwNCF8ktOqty8fiUlxZFjm4fy18VTx8II4x1io+rm+psrB2LOGfe+LhlgcCrqW8+NE44b3IAJx1LGE0/WMUYX0QizVZ4IFuecX/vHoxuStFY//mYVfFqMOFFD4ty28s8jjcVFa3yjAyeq+4gHimQWEbAttpHLlmxZeukPpviniPsOF5PX3v0/1jz3iimz0TN9lnUaRnKTxspk3dxYXWuR6ZnDmyhO+a0sn9y+7YOTy5ES+U+nYrDLnUkSNIlDUgFgersjiNfP1nNQg1kvQS6ghwp5UlYM8WwdrebMqE24dfKQ3xaZ5ZbJm9ppuYlxHBT3dsWw/W2W04VhsfoR1zIRpqt/MF1Er9rFKzcervMT0cc8sRalZDnwL57TlX/knngbk6/kiGou17jxcuwHJ5OAtOrfmk3Lx7tkn8fMZeJjWyTl+wzrph2nP1EODmSPD300e95Jwyw1Gr7Wq58zbE70qiawM1m1QKgVNKYNnBlSlG0v1hTLc1IhFip13jaoaZaMRfJka5KLB86FyOizD87LjjyTLWn/L5HiuWRsQytcjt5BXefyBLr5BZA2HqX7F1wsNaNVtQAwqTCz05NraiZNvMFiMukkVjzUfhbxL1/m+dCFP5kKbg+kZtb05/SNZgstGh8pgcYmySaBl9hVb4wwXgVYq7jHDV2Tbpqpzlq1OrL13druW2FYDD3OLwofpIW7NR6U84caHsEZnUxalw908F18vLALAGt+XBgR7WRHK2wHnjZAqJIu0rAusrIsarWtCwLquu68RXNoQqhuYHXo/bdS1jsqqajWy1X11nXQz6GxU3Us2ph9vpnxYt1dnbNGSkS62/Yz/8QAADxxJREFUdOHN3mIbPHQsOaYi3kKsdYEZgfCn0j2TcnioNZ0xtgGx6jhfD45kvY4cpWxwSO8i59KqKCqZtWFgkWGVS2Eo/ADlz6J/yD9rx6oxpWx+GSDP/l4+F4a4N6oamCG/tSMw5O/LkZ46nwfmo04Hq/H4jsMw0lrYrQ2NRZaVxzNAbZ3+bdItDBnA52NXJn4xnaa6xpiITiPkIVDUgFhdDXkys3F8+eu4bETFObuL8snbCraJL1un6H1UlY1V1JWKxIcPmdfjSl4x4JsufDDq+qwHXEm4lCz53KOEiUkQFvcVGzryZb0SUTUupU/KGwYN3iGqV48RsTecdffnrDXWFdiPziZq6ZzPJ1hUMT5jHS+xyBvwCFOmS1sxZaEx/IO08W8cgaIGxDoLa1ziSsylKqzjRfgSPStQ+VqYZyO4FY0lZ+pJsE7FusUKD7oSaWOXyONYZEFEk4PpfHyLTQmbpqrJBblZV13ggX597sXxSL6pss149CDG6r66Rjq7cNMMjHT+O1a2PlW0r4h9o5zJV7E/uOpX8Y+H6L7wrBkplmS/Yn3rsebBrnmFkz3wrK60/YVRUT1ckTinZ0UNSF04LtdNQCEN5RylE89bzXtUaOyHo2TJgvXB/XXZ/jGPVvGzJsS6ovclyltTK9MfkC1sV940MbfeA1GW1zr1mTRjU5+FHe4r6yJQ3IvIaYrulWDemCEe+gzS3qK4L4usbiSxDgK7A1yl/KVwmXgevusOtLfwT3nDfVv6FcWMGda3qEwS26nuEcbirJ0gOtM8j5p6VtqM7ilXE6B8SAV0UDa/+s12AiNjClmOsXNWGJ89FjthhCouDx3rAP2D4udmdpFMs75ugzkNqpLMZWBKLWNMlszvprIArywvU3wt7it23rXumpyV7zm/R3WbNwcIt9Ou+r2FaF0RPW0mbNzqEMgWMbcrz3WnkHoevqxJcZhYi5WtjmhELEI8jaBF3ijPmxRhHWNhh4eTxB9hBIHRm3PksvsnX+zjBs9LSIFZHxykf61uJO+WGaTLo1UNWh5DJo7NICfZDsRz0+Oms95IGdOm/1QPVlxK9NQtmWHMCNdjltfqvvK86WTlJztXXm+QMFaZ02jq1BToPH1SdR83pClBDtM/5cQVRfHht6JrqeM3dgj8qoPXzaqyYSU/97k17YkqE2ZxWvnngi9lA4Jvew8VzKqNB4coKp5FUJ4BKXqZl6rQUixWZNB1aEofjjwY+QhSH2zpwgbPDr2vHBqousCbJF/aG0aVHZvYuqRMX+411fufinDFefbi4u3lI8rvpB8kY2+tXHuGkZnjczLnTZ8+36EAN5OD3c+qcqGTwVYylsS41Ntaq2axpxc8qRoQKuwuKhB6l2UZ+z1dZCsGHUyBLxt6digdE6qbkFd067cRxtI3GGEdk2nQhG5Eq56w7b/VfcD6oIcvWbqfjnQsdCgNd0qHZcFdqZCUF2UPLtTPOmXie9/amYaPnrFtDJ8hsCTdUPdI47tASAfPGuu3TrCbtzeOTRPuZOtSA95+rZ4Gz5hv03lsTD6FWlc4M3/YXqFyl03dRDQwxzgVHqvKZ/nsbJFYKkjRtS7j2fmzqcH0LvNl1W1dE8K0z+GsPG5gi3xPb98iLxUP08hN08MzCj+o+o9bKxNlOr3dxLWwQIN8tJG3DhuubesEAcavPB3Nie3SMwk9dGytMl5qZFzLyDfVbHUbENxSO6sQrAPI9I74PoRnlhMVnG0w3EDrxuOrg2XrCdwyBwnS/AP7eV7p6nEx7aWyxH1lmX3FupzL0xRRWim6T9i9mY9GeQQzzdb67ZmsXLZOz/4uOz9I+DY9JndomQEj15jVOBLV6E82T2TmXKNKZlE4D7E6+fqubgrPwPhQFx/P4W1k+Lvq+FxV8Ek+Ocm+V/iTq+R3dZ055k3fuF3lrVSv6g079H6+lGnlIr0+9r562EpU4dlfSzYdm0KGLi/INvzo1zpt2ET1/0xnGsaZrGsdGJM73SnfzC7b2aJ/C3OChQXr26lDZDGryoRnEeNNc+F2KkbCf6VuA+LXqBQqMHpi3i8RMgvCO+DHQ0caexu4cfHr99bAhg2zupoYwLROo2RgtGGza4tn/MvbyK3Rg5hpsCblusf4zod1thsyT5B86/Yw8JtIMnmDKvooW56Mqm+056WpHSe82BT1itqC5kxAJw3IEsan6Oi5iZiNxWItJasOqrg0Ni+u5uycg4dJ50Z0ZAA3rLWXbNkjjcHQ3jcgelixdxouHU+PF1fuZarXnnuWrYSsRYv8pxt/aQyYDbYSsRYv890t+6gF13M+4H612nGdlbIBvjWQ+IIpgRMBTGY0ibWy6iVip63VLbawKbt1b67WyxDqQxcA+8+5TkWU7cpk3CKxMX29wNmf/VAfYofczCbPNHmaTuFQTmmATpbwzE+0SG/cyF2uUjl/+VXEiHUyFZZJLBefy5afp7BbdY7Xro2Q8UsRCzp0l0xrY6sazLZBVrolPeKH/ZBNzMA0Q6KwBQbsKjO0EPPtkkexUVczS76jrOuMK1nUWzPg4X7ak3P6Djyd5Bj6PIGNtUA91eBbZVZnf+7ePkQwwFsgsoJHo0p8nq35bZzMh6AL+OWgd8d4sHTvqOFFQWqbNMw3XOwWZ/fMqZ3NOZJQxkZ4DuNvYOcOYYr7ZOm1AlqBnmq3VjUESBsX5EiDnRcTCLetrM7ufFsmpE497xpp+P910NHpW/lniY8aUdYfesnzTe5ymnXeZkcjsRVyYuYtvCzLLtGZzo6AHIo0qMx8LxOVGMzZ3nerklaIn5XLkRIqXyS7cT0yQsH4tciiJlefeiQLDtKmPh0kgA+s6RChDoPMGRBWc1t67++3Wqqy4qIryxuyromuj8bwFjcbV/q18MYD5DaMgbljmyRvZC9k2Ey63tUz48gsNqrognHA5faKKz3D9KsnyPIgNIptnkc1svuidULKHyti6JoZMMJnE+6ZDOnYB+Jp0fUrEm/+OOrLw8Alc1Pn6Iu7FY3Rk3QkNB503LnsIdza7WLC9iCddI7wqEzYLPTe98NmT2HkDsgQpM2x4kCz9NB3OUqUdVOQst+LYr8a6/fIdqixNzv/27AZLTzSblUnOGWjeRAnbJOvuqjKrMNBrLbxovODZrNMosjW2E6TJ+4C/UHXd9D0P1XE2JmRcjkkGUuUKjxA3e9IxXsm4zZ36fb90MwGAFe+Mc7AbsXWFtpKPBT6YxUN77EKHEadKN7st6xChCIFeNCCq4MzGekeRkQXxfO7y4pxrjCdY85XS/55jygKuNm60vGujcVvoplx/NHJOfjOd19uByELzVdWhm7MR03Qu2/H704HwvEHRcLMAzpRV6fh7MWY/saCfvQjvlm2Ufy+MGRohmyiTI4e/45iPgPVBm586bSwbLXp7YWz3vdeIGWwXMRKV+5MVy+ZpwbkSKiJVCb8iFlwUOlQGZozR+FUyzhqDcMLfXDV+UZbt3j2AyozNuyYMqCcX5l0riTtSnQ72eithWbkkHbiKWdRXp7FeEVjvjHHP02TTsfXENJdatrHRYtOdzOYy0ILk3jQgKix6X0yn9Wb7At1EuG4WdGTPJOu+QTdIJwOvXn1efm5aa5p9lYd5HUxn5bQVpywfb3gMxGfjpvWcTx54OlGs3XCN4anOMzbHgkE+n9sVTrjS9pEtuIm6ssGqly3fPd9XscqdCb7eNCCgqQrFbBG+KcJPKzEOMhzw8nz3g9kpVh11+GhAvm8UwGB637aeN5pej01l/3FJuE/kDYxj9WrnXW8GhvzCALcJrix658PoquPz1emg4aniW74uPXwTnHEyzxqR5fQ1T5hYspVsmIq3Rtn5LeV3Gho6mdlgKBDdqwZkyUZeabmRln6aDgfoJmLGiHXREq/wrTQgqoDsvsq6EFNGxMQDRIe5DJ61M0OAWt03aai0qaPqC64s8zTdJTtOUf0vXRu1xLd8kJ7v6Af7UzFltcmJJFIzCPTimaa7gXS3vVniwIBJ/8leVsffNWn6WU7XuwZEhcV8cK8vmDJiVS8zRjivomulhwd7FV+q656dZzfXw2BeB9PZ9sKDeePjWB5jEvL+jmR53qoeJX5vo8M6FD52xUQPVp4fIhkenWI3Babmsl36M3TPnShiRpgpYc+YaGg9b4Y9M78Zc3rXgCxl8zQdmZmlgzk8zsy5sOCZXusQm8+qm4bvYjPlMZ9hdew8D6azjsAznfNGYdvGONbqEnL/8iVQnngDxx3reWDtrI4Hb+E+ZeKWPhqS9+pIQ/IiRbGdBwPIvDXopyv8RNzsLsHUXgbsnyy5J4imupxkP3l6j/IWIYNAbgMisPYUWYLnE5UZteWnUvwDERVPh0YC89nLjUh8Vbl4jsgaVn3gR4k2EvU1JPUPK5PPE1nDxNttlBWvlG8hsoTtyuTUuSblt4keKvKE2jOGpAy9Z+i4k4hO2VbKB7tFnKMjM+V4kLLhILsHfElxLALl7Z/vnLCX3OOVbmPRsaJrRKy2F1u6IJkvF1kCDXEyxVJ4tMgaGM9NpruvgnIbkL4aG3YFAoFAuwjoaXmT6CLRGtHuIhoHGom1db6+aAfR60RnithPDpdVu0aGts4QmIYGpDNwQnEgEAgEAoFAMQLRgBRjE1cCgUAgEAgEShCIBqQEnLgUCMw9AgFAIFCCQDQgJeDEpUAgEAgEAoFiBKIBKcYmrgQCgUAgEAiUIBANSAk49S+FhEAgEAgEZheBaEBmt2wjZ4FAIBAINIpANCCNwhvCA4FAoCsEQm/zCEQD0jzGoSEQCAQCgZlEIBqQmSzWyFQgEAgEAs0jEA1I8xhPp4awOhAIBAKBCgSiAakAKC4HAoFAIBAI5CMQDUg+LhEbCAQCgUBXCEyN3mhApqaowtBAIBAIBPqFQDQg/SqPsCYQCAQCgalBIBqQqSmqMNSKQPAFAoFAOwhEA9IOzqElEAgEAoGZQyAakJkr0shQIBAIBALtIDDegLSjN7QEAoFAIBAITDkC0YBMeQGG+YFAIBAIdIVANCBdIR96A4FxBCImEJgqBKIBmariCmMDgUAgEOgPAtGA9KcswpJAIBAIBKYKgZlqQKYK+TA2EAgEAoEpRyAakCkvwDA/EAgEAoGuEIgGpCvkQ28gMFMIRGbmEYFoQOax1CPPgUAgEAgkQCAakAQghohAIBAIBOYRgf8HAAD//yrbVoEAAAAGSURBVAMAC2I0h+LGFlUAAAAASUVORK5CYII="/>
+                <img alt="Kaevron OS Wordmark Logo" class="w-[180px] h-auto grayscale brightness-200"
+                    src="data:image/png;base64,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" />
             </div>
             <!-- Header Section -->
             <div class="text-center mb-lg">
@@ -205,15 +225,20 @@
                 <p class="font-body-sm text-body-sm text-on-surface-variant/60">Secure Kernel Access Point</p>
             </div>
             <!-- Alert Display -->
-            <div id="loginAlert" class="w-full bg-error-container/20 border border-error/30 text-error text-xs p-3 mb-4 hidden"></div>
+            <div id="loginAlert"
+                class="w-full bg-error-container/20 border border-error/30 text-error text-xs p-3 mb-4 hidden"></div>
             <!-- Form -->
             <form class="w-full space-y-md" id="loginForm">
                 <!-- Email Field -->
                 <div class="space-y-xs">
-                    <label class="font-label-md text-label-md text-on-surface-variant block uppercase tracking-widest" for="email">Identifier</label>
+                    <label class="font-label-md text-label-md text-on-surface-variant block uppercase tracking-widest"
+                        for="email">Identifier</label>
                     <div class="relative group">
-                        <input class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-md py-sm font-body-sm text-primary placeholder:text-on-surface-variant/30 transition-all duration-300 input-focus-glow" id="email" placeholder="user@kaevron.os" type="email" required/>
-                        <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-on-surface-variant/40">
+                        <input
+                            class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-md py-sm font-body-sm text-primary placeholder:text-on-surface-variant/30 transition-all duration-300 input-focus-glow"
+                            id="email" placeholder="user@kaevron.os" type="email" required />
+                        <div
+                            class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-on-surface-variant/40">
                             <span class="material-symbols-outlined text-[18px]">alternate_email</span>
                         </div>
                     </div>
@@ -221,26 +246,36 @@
                 <!-- Password Field -->
                 <div class="space-y-xs">
                     <div class="flex justify-between items-end">
-                        <label class="font-label-md text-label-md text-on-surface-variant block uppercase tracking-widest" for="password">Access Key</label>
+                        <label
+                            class="font-label-md text-label-md text-on-surface-variant block uppercase tracking-widest"
+                            for="password">Access Key</label>
                     </div>
                     <div class="relative group">
-                        <input class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-md py-sm font-body-sm text-primary placeholder:text-on-surface-variant/30 transition-all duration-300 input-focus-glow" id="password" placeholder="••••••••" type="password" required/>
-                        <button class="absolute inset-y-0 right-3 flex items-center text-on-surface-variant/40 hover:text-primary transition-colors toggle-pass-visibility" type="button">
+                        <input
+                            class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-md py-sm font-body-sm text-primary placeholder:text-on-surface-variant/30 transition-all duration-300 input-focus-glow"
+                            id="password" placeholder="••••••••" type="password" required />
+                        <button
+                            class="absolute inset-y-0 right-3 flex items-center text-on-surface-variant/40 hover:text-primary transition-colors toggle-pass-visibility"
+                            type="button">
                             <span class="material-symbols-outlined text-[18px]">visibility</span>
                         </button>
                     </div>
                 </div>
                 <!-- Primary Action -->
-                <button class="w-full bg-primary text-on-primary font-label-md text-label-md py-md rounded-none hover:bg-secondary transition-all active:scale-[0.98] mt-lg flex items-center justify-center gap-2" type="submit">
+                <button
+                    class="w-full bg-primary text-on-primary font-label-md text-label-md py-md rounded-none hover:bg-secondary transition-all active:scale-[0.98] mt-lg flex items-center justify-center gap-2"
+                    type="submit">
                     SIGN IN
                     <span class="material-symbols-outlined text-[18px]">login</span>
                 </button>
             </form>
             <!-- Footer Links -->
             <div class="mt-lg flex items-center gap-gutter w-full justify-center">
-                <a class="font-body-sm text-body-sm text-on-surface-variant/70 hover:text-primary transition-colors border-b border-transparent hover:border-primary cursor-pointer" onclick="toggleAuthView('forgot')">Forgot Password</a>
+                <a class="font-body-sm text-body-sm text-on-surface-variant/70 hover:text-primary transition-colors border-b border-transparent hover:border-primary cursor-pointer"
+                    onclick="toggleAuthView('forgot')">Forgot Password</a>
                 <span class="text-outline-variant/30">|</span>
-                <a class="font-body-sm text-body-sm text-on-surface-variant/70 hover:text-primary transition-colors border-b border-transparent hover:border-primary cursor-pointer" onclick="toggleAuthView('register')">Register</a>
+                <a class="font-body-sm text-body-sm text-on-surface-variant/70 hover:text-primary transition-colors border-b border-transparent hover:border-primary cursor-pointer"
+                    onclick="toggleAuthView('register')">Register</a>
             </div>
         </div>
 
@@ -253,39 +288,62 @@
                 <p class="font-body-sm text-body-sm text-on-surface-variant/60">Register New Secure Profile</p>
             </div>
             <!-- Alert Display -->
-            <div id="registerAlert" class="w-full bg-error-container/20 border border-error/30 text-error text-xs p-3 mb-4 hidden"></div>
+            <div id="registerAlert"
+                class="w-full bg-error-container/20 border border-error/30 text-error text-xs p-3 mb-4 hidden"></div>
             <!-- Form -->
             <form class="w-full space-y-md" id="registerForm">
                 <!-- Names -->
                 <div class="grid grid-cols-2 gap-4">
                     <div class="space-y-xs">
-                        <label class="font-label-md text-label-md text-on-surface-variant block uppercase tracking-widest text-[10px]" for="regFirstName">First Name</label>
-                        <input class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-md py-sm font-body-sm text-primary placeholder:text-on-surface-variant/30 transition-all duration-300 input-focus-glow" id="regFirstName" placeholder="John" type="text" required/>
+                        <label
+                            class="font-label-md text-label-md text-on-surface-variant block uppercase tracking-widest text-[10px]"
+                            for="regFirstName">First Name</label>
+                        <input
+                            class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-md py-sm font-body-sm text-primary placeholder:text-on-surface-variant/30 transition-all duration-300 input-focus-glow"
+                            id="regFirstName" placeholder="John" type="text" required />
                     </div>
                     <div class="space-y-xs">
-                        <label class="font-label-md text-label-md text-on-surface-variant block uppercase tracking-widest text-[10px]" for="regLastName">Last Name</label>
-                        <input class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-md py-sm font-body-sm text-primary placeholder:text-on-surface-variant/30 transition-all duration-300 input-focus-glow" id="regLastName" placeholder="Doe" type="text" required/>
+                        <label
+                            class="font-label-md text-label-md text-on-surface-variant block uppercase tracking-widest text-[10px]"
+                            for="regLastName">Last Name</label>
+                        <input
+                            class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-md py-sm font-body-sm text-primary placeholder:text-on-surface-variant/30 transition-all duration-300 input-focus-glow"
+                            id="regLastName" placeholder="Doe" type="text" required />
                     </div>
                 </div>
                 <!-- Email -->
                 <div class="space-y-xs">
-                    <label class="font-label-md text-label-md text-on-surface-variant block uppercase tracking-widest text-[10px]" for="regEmail">Identifier</label>
-                    <input class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-md py-sm font-body-sm text-primary placeholder:text-on-surface-variant/30 transition-all duration-300 input-focus-glow" id="regEmail" placeholder="user@kaevron.os" type="email" required/>
+                    <label
+                        class="font-label-md text-label-md text-on-surface-variant block uppercase tracking-widest text-[10px]"
+                        for="regEmail">Identifier</label>
+                    <input
+                        class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-md py-sm font-body-sm text-primary placeholder:text-on-surface-variant/30 transition-all duration-300 input-focus-glow"
+                        id="regEmail" placeholder="user@kaevron.os" type="email" required />
                 </div>
                 <!-- Password -->
                 <div class="space-y-xs">
-                    <label class="font-label-md text-label-md text-on-surface-variant block uppercase tracking-widest text-[10px]" for="regPassword">Access Key</label>
+                    <label
+                        class="font-label-md text-label-md text-on-surface-variant block uppercase tracking-widest text-[10px]"
+                        for="regPassword">Access Key</label>
                     <div class="relative group">
-                        <input class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-md py-sm font-body-sm text-primary placeholder:text-on-surface-variant/30 transition-all duration-300 input-focus-glow" id="regPassword" placeholder="Min 6 characters" type="password" required/>
-                        <button class="absolute inset-y-0 right-3 flex items-center text-on-surface-variant/40 hover:text-primary transition-colors toggle-pass-visibility" type="button">
+                        <input
+                            class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-md py-sm font-body-sm text-primary placeholder:text-on-surface-variant/30 transition-all duration-300 input-focus-glow"
+                            id="regPassword" placeholder="Min 6 characters" type="password" required />
+                        <button
+                            class="absolute inset-y-0 right-3 flex items-center text-on-surface-variant/40 hover:text-primary transition-colors toggle-pass-visibility"
+                            type="button">
                             <span class="material-symbols-outlined text-[18px]">visibility</span>
                         </button>
                     </div>
                 </div>
                 <!-- Role Dropdown -->
                 <div class="space-y-xs">
-                    <label class="font-label-md text-label-md text-on-surface-variant block uppercase tracking-widest text-[10px]" for="regRole">Role Clearance</label>
-                    <select class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-md py-sm font-body-sm text-primary transition-all duration-300 input-focus-glow" id="regRole">
+                    <label
+                        class="font-label-md text-label-md text-on-surface-variant block uppercase tracking-widest text-[10px]"
+                        for="regRole">Role Clearance</label>
+                    <select
+                        class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-md py-sm font-body-sm text-primary transition-all duration-300 input-focus-glow"
+                        id="regRole">
                         <option value="Employee" class="bg-neutral-900 text-primary">Employee (Default)</option>
                         <option value="Team Lead" class="bg-neutral-900 text-primary">Team Lead</option>
                         <option value="Manager" class="bg-neutral-900 text-primary">Business Manager</option>
@@ -294,14 +352,17 @@
                     </select>
                 </div>
                 <!-- Primary Action -->
-                <button class="w-full bg-primary text-on-primary font-label-md text-label-md py-md rounded-none hover:bg-secondary transition-all active:scale-[0.98] mt-lg flex items-center justify-center gap-2" type="submit">
+                <button
+                    class="w-full bg-primary text-on-primary font-label-md text-label-md py-md rounded-none hover:bg-secondary transition-all active:scale-[0.98] mt-lg flex items-center justify-center gap-2"
+                    type="submit">
                     REGISTER PROFILE
                     <span class="material-symbols-outlined text-[18px]">how_to_reg</span>
                 </button>
             </form>
             <!-- Back to Login -->
             <div class="mt-lg flex items-center w-full justify-center">
-                <a class="font-body-sm text-body-sm text-on-surface-variant/70 hover:text-primary transition-colors border-b border-transparent hover:border-primary cursor-pointer" onclick="toggleAuthView('login')">Return to Authentication</a>
+                <a class="font-body-sm text-body-sm text-on-surface-variant/70 hover:text-primary transition-colors border-b border-transparent hover:border-primary cursor-pointer"
+                    onclick="toggleAuthView('login')">Return to Authentication</a>
             </div>
         </div>
 
@@ -314,81 +375,119 @@
                 <p class="font-body-sm text-body-sm text-on-surface-variant/60">Receive Recovery Link via Identifier</p>
             </div>
             <!-- Alert Display -->
-            <div id="forgotAlert" class="w-full bg-error-container/20 border border-error/30 text-error text-xs p-3 mb-4 hidden"></div>
-            <div id="forgotSuccess" class="w-full bg-green-950/20 border border-green-500/30 text-green-400 text-xs p-3 mb-4 hidden"></div>
+            <div id="forgotAlert"
+                class="w-full bg-error-container/20 border border-error/30 text-error text-xs p-3 mb-4 hidden"></div>
+            <div id="forgotSuccess"
+                class="w-full bg-green-950/20 border border-green-500/30 text-green-400 text-xs p-3 mb-4 hidden"></div>
             <!-- Form -->
             <form class="w-full space-y-md" id="forgotForm">
                 <div class="space-y-xs">
-                    <label class="font-label-md text-label-md text-on-surface-variant block uppercase tracking-widest text-[10px]" for="forgotEmail">Identifier</label>
-                    <input class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-md py-sm font-body-sm text-primary placeholder:text-on-surface-variant/30 transition-all duration-300 input-focus-glow" id="forgotEmail" placeholder="user@kaevron.os" type="email" required/>
+                    <label
+                        class="font-label-md text-label-md text-on-surface-variant block uppercase tracking-widest text-[10px]"
+                        for="forgotEmail">Identifier</label>
+                    <input
+                        class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-md py-sm font-body-sm text-primary placeholder:text-on-surface-variant/30 transition-all duration-300 input-focus-glow"
+                        id="forgotEmail" placeholder="user@kaevron.os" type="email" required />
                 </div>
                 <!-- Primary Action -->
-                <button class="w-full bg-primary text-on-primary font-label-md text-label-md py-md rounded-none hover:bg-secondary transition-all active:scale-[0.98] mt-lg flex items-center justify-center gap-2" type="submit">
+                <button
+                    class="w-full bg-primary text-on-primary font-label-md text-label-md py-md rounded-none hover:bg-secondary transition-all active:scale-[0.98] mt-lg flex items-center justify-center gap-2"
+                    type="submit">
                     REQUEST LINK
                     <span class="material-symbols-outlined text-[18px]">mail</span>
                 </button>
             </form>
             <!-- Back to Login -->
             <div class="mt-lg flex items-center w-full justify-center">
-                <a class="font-body-sm text-body-sm text-on-surface-variant/70 hover:text-primary transition-colors border-b border-transparent hover:border-primary cursor-pointer" onclick="toggleAuthView('login')">Return to Authentication</a>
+                <a class="font-body-sm text-body-sm text-on-surface-variant/70 hover:text-primary transition-colors border-b border-transparent hover:border-primary cursor-pointer"
+                    onclick="toggleAuthView('login')">Return to Authentication</a>
             </div>
         </div>
 
         <!-- Security Badge -->
         <div id="securityBadge" class="mt-lg text-center flex items-center justify-center gap-2 opacity-40">
-            <span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
-            <span class="font-mono-label text-mono-label text-primary uppercase tracking-[0.2em] text-[9px]">Encrypted Session (AES-256)</span>
+            <span class="material-symbols-outlined text-[16px] text-primary"
+                style="font-variation-settings: 'FILL' 1;">verified_user</span>
+            <span class="font-mono-label text-mono-label text-primary uppercase tracking-[0.2em] text-[9px]">Encrypted
+                Session (AES-256)</span>
         </div>
     </main>
 
     <!-- 2. Dashboard Interface Overlay Layer -->
-    <div id="dashboardContainer" class="fixed inset-0 z-20 bg-[#070707] flex flex-col hidden transition-all duration-300">
+    <div id="dashboardContainer"
+        class="fixed inset-0 z-20 bg-[#070707] flex flex-col hidden transition-all duration-300">
         <!-- Top Menubar -->
-        <div class="h-12 border-b border-outline-variant/20 bg-black/85 backdrop-blur-md px-6 flex justify-between items-center z-30 select-none">
+        <div
+            class="h-12 border-b border-outline-variant/20 bg-black/85 backdrop-blur-md px-6 flex justify-between items-center z-30 select-none">
             <div class="flex items-center gap-4">
-                <span class="font-title-md text-primary tracking-[0.15em] uppercase text-sm font-semibold">KAEVRON OS</span>
+                <span class="font-title-md text-primary tracking-[0.15em] uppercase text-sm font-semibold">KAEVRON
+                    OS</span>
                 <span class="h-4 w-px bg-outline-variant/30"></span>
-                <span class="font-mono-label text-on-surface-variant/40 text-[9px] uppercase tracking-[0.2em]">Enterprise Control Kernel</span>
+                <span
+                    class="font-mono-label text-on-surface-variant/40 text-[9px] uppercase tracking-[0.2em]">Enterprise
+                    Control Kernel</span>
             </div>
             <!-- User Info Badge & Actions -->
             <div class="flex items-center gap-6">
                 <div class="flex items-center gap-2.5">
                     <span class="inline-block h-2 w-2 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]"></span>
                     <span class="font-body-sm text-primary/80 text-xs" id="userEmailDisplay">...</span>
-                    <span class="font-mono-label bg-primary/10 text-primary text-[9px] px-2 py-0.5 border border-primary/20 tracking-widest uppercase rounded-none" id="userRoleDisplay">Employee</span>
+                    <span
+                        class="font-mono-label bg-primary/10 text-primary text-[9px] px-2 py-0.5 border border-primary/20 tracking-widest uppercase rounded-none"
+                        id="userRoleDisplay">Employee</span>
                 </div>
-                <button class="text-on-surface-variant/80 hover:text-primary transition-colors text-xs uppercase tracking-widest font-label-md border-b border-transparent hover:border-primary" onclick="logout()">Sign Out</button>
+                <button
+                    class="text-on-surface-variant/80 hover:text-primary transition-colors text-xs uppercase tracking-widest font-label-md border-b border-transparent hover:border-primary"
+                    onclick="logout()">Sign Out</button>
             </div>
         </div>
 
         <!-- Desktop Shell Grid -->
         <div class="flex-1 flex overflow-hidden">
             <!-- Sidebar Panel -->
-            <div class="w-60 border-r border-outline-variant/20 bg-surface-container-lowest/40 backdrop-blur-md flex flex-col p-4 space-y-1 select-none">
-                <div class="font-label-md text-on-surface-variant/30 text-[9px] tracking-[0.25em] uppercase mb-3 px-3">Kernel Systems</div>
-                
-                <button class="sidebar-tab active flex items-center gap-3 w-full text-left px-3 py-2.5 text-xs uppercase tracking-widest font-medium" data-tab="dashboard">
+            <div
+                class="w-60 border-r border-outline-variant/20 bg-surface-container-lowest/40 backdrop-blur-md flex flex-col p-4 space-y-1 select-none">
+                <div class="font-label-md text-on-surface-variant/30 text-[9px] tracking-[0.25em] uppercase mb-3 px-3">
+                    Kernel Systems</div>
+
+                <button
+                    class="sidebar-tab active flex items-center gap-3 w-full text-left px-3 py-2.5 text-xs uppercase tracking-widest font-medium"
+                    data-tab="dashboard">
                     <span class="material-symbols-outlined text-[18px]">dashboard</span> Dashboard
                 </button>
-                <button class="sidebar-tab flex items-center gap-3 w-full text-left px-3 py-2.5 text-xs uppercase tracking-widest font-medium" data-tab="projects">
+                <button
+                    class="sidebar-tab flex items-center gap-3 w-full text-left px-3 py-2.5 text-xs uppercase tracking-widest font-medium"
+                    data-tab="projects">
                     <span class="material-symbols-outlined text-[18px]">folder</span> Projects
                 </button>
-                <button class="sidebar-tab flex items-center gap-3 w-full text-left px-3 py-2.5 text-xs uppercase tracking-widest font-medium" data-tab="tasks">
+                <button
+                    class="sidebar-tab flex items-center gap-3 w-full text-left px-3 py-2.5 text-xs uppercase tracking-widest font-medium"
+                    data-tab="tasks">
                     <span class="material-symbols-outlined text-[18px]">task_alt</span> Tasks
                 </button>
-                <button class="sidebar-tab flex items-center gap-3 w-full text-left px-3 py-2.5 text-xs uppercase tracking-widest font-medium" data-tab="departments">
+                <button
+                    class="sidebar-tab flex items-center gap-3 w-full text-left px-3 py-2.5 text-xs uppercase tracking-widest font-medium"
+                    data-tab="departments">
                     <span class="material-symbols-outlined text-[18px]">domain</span> Departments
                 </button>
-                <button class="sidebar-tab flex items-center gap-3 w-full text-left px-3 py-2.5 text-xs uppercase tracking-widest font-medium" data-tab="teams">
+                <button
+                    class="sidebar-tab flex items-center gap-3 w-full text-left px-3 py-2.5 text-xs uppercase tracking-widest font-medium"
+                    data-tab="teams">
                     <span class="material-symbols-outlined text-[18px]">groups</span> Teams
                 </button>
-                <button class="sidebar-tab flex items-center gap-3 w-full text-left px-3 py-2.5 text-xs uppercase tracking-widest font-medium" data-tab="performance">
+                <button
+                    class="sidebar-tab flex items-center gap-3 w-full text-left px-3 py-2.5 text-xs uppercase tracking-widest font-medium"
+                    data-tab="performance">
                     <span class="material-symbols-outlined text-[18px]">analytics</span> Performance
                 </button>
-                <button class="sidebar-tab flex items-center gap-3 w-full text-left px-3 py-2.5 text-xs uppercase tracking-widest font-medium" data-tab="insights">
+                <button
+                    class="sidebar-tab flex items-center gap-3 w-full text-left px-3 py-2.5 text-xs uppercase tracking-widest font-medium"
+                    data-tab="insights">
                     <span class="material-symbols-outlined text-[18px]">psychology</span> AI Insights
                 </button>
-                <button class="sidebar-tab flex items-center gap-3 w-full text-left px-3 py-2.5 text-xs uppercase tracking-widest font-medium" data-tab="activities">
+                <button
+                    class="sidebar-tab flex items-center gap-3 w-full text-left px-3 py-2.5 text-xs uppercase tracking-widest font-medium"
+                    data-tab="activities">
                     <span class="material-symbols-outlined text-[18px]">history</span> Audit Logs
                 </button>
 
@@ -409,13 +508,16 @@
     </div>
 
     <!-- 3. Glassmorphic Modal Dialog Overlay -->
-    <div id="modalContainer" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden">
+    <div id="modalContainer"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden">
         <div class="glass-card w-full max-w-[500px] p-6 relative">
             <div class="light-leak"></div>
             <!-- Header -->
             <div class="flex justify-between items-center mb-6">
-                <h3 class="font-title-md text-primary uppercase tracking-widest text-xs font-semibold" id="modalTitle">SYSTEM UTILITY</h3>
-                <button onclick="closeModal()" class="text-on-surface-variant hover:text-primary transition-colors focus:outline-none">
+                <h3 class="font-title-md text-primary uppercase tracking-widest text-xs font-semibold" id="modalTitle">
+                    SYSTEM UTILITY</h3>
+                <button onclick="closeModal()"
+                    class="text-on-surface-variant hover:text-primary transition-colors focus:outline-none">
                     <span class="material-symbols-outlined text-[20px]">close</span>
                 </button>
             </div>
@@ -425,8 +527,10 @@
                     <!-- Injected Inputs -->
                 </div>
                 <div class="pt-4 flex justify-end gap-3">
-                    <button type="button" onclick="closeModal()" class="border border-outline-variant/40 text-on-surface-variant hover:text-primary px-4 py-2 text-xs uppercase tracking-wider transition-colors">Cancel</button>
-                    <button type="submit" id="modalSubmitBtn" class="bg-primary text-on-primary px-4 py-2 text-xs uppercase tracking-wider hover:bg-secondary transition-all">Submit</button>
+                    <button type="button" onclick="closeModal()"
+                        class="border border-outline-variant/40 text-on-surface-variant hover:text-primary px-4 py-2 text-xs uppercase tracking-wider transition-colors">Cancel</button>
+                    <button type="submit" id="modalSubmitBtn"
+                        class="bg-primary text-on-primary px-4 py-2 text-xs uppercase tracking-wider hover:bg-secondary transition-all">Submit</button>
                 </div>
             </form>
         </div>
@@ -442,10 +546,8 @@
 
     <!-- CORE INTERACTION CLIENT SCRIPT -->
     <script>
-        // Set dynamic base URL
-        const API_BASE = window.location.origin === 'null' || window.location.protocol === 'file:' 
-            ? 'http://localhost:5000/api' 
-            : window.location.origin + '/api';
+        // CORE INTERACTION CLIENT SCRIPT
+        const API_BASE = "https://business-management-system-5b4f.onrender.com";
 
         // State trackers
         let currentUser = null;
@@ -473,7 +575,7 @@
             document.getElementById('loginForm').addEventListener('submit', handleLogin);
             document.getElementById('registerForm').addEventListener('submit', handleRegister);
             document.getElementById('forgotForm').addEventListener('submit', handleForgotPassword);
-            
+
             // Password toggle triggers
             document.querySelectorAll('.toggle-pass-visibility').forEach(btn => {
                 btn.addEventListener('click', (e) => {
@@ -502,7 +604,7 @@
             document.getElementById('loginCard').classList.add('hidden');
             document.getElementById('registerCard').classList.add('hidden');
             document.getElementById('forgotCard').classList.add('hidden');
-            
+
             // Clear alerts
             document.getElementById('loginAlert').classList.add('hidden');
             document.getElementById('registerAlert').classList.add('hidden');
@@ -938,12 +1040,11 @@
                                                 </span>
                                             </td>
                                             <td class="p-4">
-                                                <span class="font-mono-label text-[10px] uppercase tracking-wider px-2 py-0.5 ${
-                                                    p.status === 'Completed' ? 'bg-green-500/10 text-green-400 border border-green-500/20' :
-                                                    p.status === 'In Progress' ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20' :
-                                                    p.status === 'On Hold' ? 'bg-yellow-500/10 text-yellow-400 border border-yellow-500/20' :
-                                                    'bg-neutral-800 text-on-surface-variant border border-outline-variant/30'
-                                                }">
+                                                <span class="font-mono-label text-[10px] uppercase tracking-wider px-2 py-0.5 ${p.status === 'Completed' ? 'bg-green-500/10 text-green-400 border border-green-500/20' :
+                        p.status === 'In Progress' ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20' :
+                            p.status === 'On Hold' ? 'bg-yellow-500/10 text-yellow-400 border border-yellow-500/20' :
+                                'bg-neutral-800 text-on-surface-variant border border-outline-variant/30'
+                    }">
                                                     ${p.status}
                                                 </span>
                                             </td>
@@ -1014,10 +1115,10 @@
                                             <td colspan="7" class="p-8 text-center text-on-surface-variant/40">No tasks mapped in database.</td>
                                         </tr>
                                     ` : tasks.map(t => {
-                                        const isAssignee = t.assignee_id === currentUser.id;
-                                        const canUpdate = isManagerOrLead || isAssignee;
+                    const isAssignee = t.assignee_id === currentUser.id;
+                    const canUpdate = isManagerOrLead || isAssignee;
 
-                                        return `
+                    return `
                                             <tr class="border-b border-outline-variant/10 hover:bg-white/[0.01]">
                                                 <td class="p-4 font-semibold text-primary">
                                                     <div>${t.title}</div>
@@ -1028,22 +1129,20 @@
                                                     ${t.assignee ? `${t.assignee.first_name} ${t.assignee.last_name}` : '<span class="text-on-surface-variant/30">Unassigned</span>'}
                                                 </td>
                                                 <td class="p-4">
-                                                    <span class="font-mono-label text-[10px] uppercase tracking-wider px-1.5 py-0.5 border ${
-                                                        t.priority === 'Urgent' ? 'bg-red-950/20 text-red-400 border-red-500/30' :
-                                                        t.priority === 'High' ? 'bg-orange-950/20 text-orange-400 border-orange-500/30' :
-                                                        t.priority === 'Medium' ? 'bg-blue-950/20 text-blue-400 border-blue-500/30' :
-                                                        'bg-neutral-800 text-on-surface-variant border-outline-variant/30'
-                                                    }">
+                                                    <span class="font-mono-label text-[10px] uppercase tracking-wider px-1.5 py-0.5 border ${t.priority === 'Urgent' ? 'bg-red-950/20 text-red-400 border-red-500/30' :
+                            t.priority === 'High' ? 'bg-orange-950/20 text-orange-400 border-orange-500/30' :
+                                t.priority === 'Medium' ? 'bg-blue-950/20 text-blue-400 border-blue-500/30' :
+                                    'bg-neutral-800 text-on-surface-variant border-outline-variant/30'
+                        }">
                                                         ${t.priority}
                                                     </span>
                                                 </td>
                                                 <td class="p-4">
-                                                    <span class="font-mono-label text-[10px] uppercase tracking-wider px-2 py-0.5 ${
-                                                        t.status === 'Done' ? 'bg-green-500/10 text-green-400 border border-green-500/20' :
-                                                        t.status === 'In Review' ? 'bg-purple-500/10 text-purple-400 border border-purple-500/20' :
-                                                        t.status === 'In Progress' ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20' :
-                                                        'bg-neutral-800 text-on-surface-variant border border-outline-variant/30'
-                                                    }">
+                                                    <span class="font-mono-label text-[10px] uppercase tracking-wider px-2 py-0.5 ${t.status === 'Done' ? 'bg-green-500/10 text-green-400 border border-green-500/20' :
+                            t.status === 'In Review' ? 'bg-purple-500/10 text-purple-400 border border-purple-500/20' :
+                                t.status === 'In Progress' ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20' :
+                                    'bg-neutral-800 text-on-surface-variant border border-outline-variant/30'
+                        }">
                                                         ${t.status}
                                                     </span>
                                                 </td>
@@ -1061,7 +1160,7 @@
                                                 </td>
                                             </tr>
                                         `;
-                                    }).join('')}
+                }).join('')}
                                 </tbody>
                             </table>
                         </div>
@@ -1634,11 +1733,11 @@
                     <div class="grid grid-cols-2 gap-4">
                         <div class="space-y-1">
                             <label class="font-label-md text-[10px] text-on-surface-variant uppercase tracking-widest">Start Date</label>
-                            <input id="pStart" type="date" value="${isEdit && data.start_date ? data.start_date.substring(0,10) : ''}" class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-3 py-2 text-xs text-primary input-focus-glow"/>
+                            <input id="pStart" type="date" value="${isEdit && data.start_date ? data.start_date.substring(0, 10) : ''}" class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-3 py-2 text-xs text-primary input-focus-glow"/>
                         </div>
                         <div class="space-y-1">
                             <label class="font-label-md text-[10px] text-on-surface-variant uppercase tracking-widest">End Date</label>
-                            <input id="pEnd" type="date" value="${isEdit && data.end_date ? data.end_date.substring(0,10) : ''}" class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-3 py-2 text-xs text-primary input-focus-glow"/>
+                            <input id="pEnd" type="date" value="${isEdit && data.end_date ? data.end_date.substring(0, 10) : ''}" class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-3 py-2 text-xs text-primary input-focus-glow"/>
                         </div>
                     </div>
                 </div>
@@ -1701,7 +1800,7 @@
                     </div>
                     <div class="space-y-1">
                         <label class="font-label-md text-[10px] text-on-surface-variant uppercase tracking-widest">Due Date</label>
-                        <input id="tDue" type="date" value="${isEdit && data.due_date ? data.due_date.substring(0,10) : ''}" class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-3 py-2 text-xs text-primary input-focus-glow"/>
+                        <input id="tDue" type="date" value="${isEdit && data.due_date ? data.due_date.substring(0, 10) : ''}" class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-3 py-2 text-xs text-primary input-focus-glow"/>
                     </div>
                 </div>
             `;
@@ -1791,11 +1890,11 @@
                     <div class="grid grid-cols-2 gap-4">
                         <div class="space-y-1">
                             <label class="font-label-md text-[10px] text-on-surface-variant uppercase tracking-widest">Period Start</label>
-                            <input id="rStart" type="date" value="${isEdit && data.period_start ? data.period_start.substring(0,10) : ''}" class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-3 py-2 text-xs text-primary input-focus-glow" required/>
+                            <input id="rStart" type="date" value="${isEdit && data.period_start ? data.period_start.substring(0, 10) : ''}" class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-3 py-2 text-xs text-primary input-focus-glow" required/>
                         </div>
                         <div class="space-y-1">
                             <label class="font-label-md text-[10px] text-on-surface-variant uppercase tracking-widest">Period End</label>
-                            <input id="rEnd" type="date" value="${isEdit && data.period_end ? data.period_end.substring(0,10) : ''}" class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-3 py-2 text-xs text-primary input-focus-glow" required/>
+                            <input id="rEnd" type="date" value="${isEdit && data.period_end ? data.period_end.substring(0, 10) : ''}" class="w-full bg-black/40 border border-outline-variant/40 rounded-none px-3 py-2 text-xs text-primary input-focus-glow" required/>
                         </div>
                     </div>
                     <div class="space-y-1">
@@ -1840,4 +1939,5 @@
         }
     </script>
 </body>
+
 </html>
